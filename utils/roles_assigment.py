@@ -19,3 +19,15 @@ def check_activity_today():
         member.add_role(data.roles[user.rank])
 
 
+def has_role_id(id):
+
+    def predicate(ctx):
+        msg = ctx.message
+        ch = msg.channel
+        if ch.is_private:
+            return False
+
+        role = discord.utils.get(msg.author.roles, id=id)
+        return role is not None
+
+    return check(predicate)
