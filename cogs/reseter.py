@@ -1,7 +1,6 @@
 from discord.ext import commands
 import db.db_adapter as db
 import data
-import utils.roles_assigment as r
 
 
 class Reset:
@@ -10,7 +9,7 @@ class Reset:
         self.bot = bot
 
     @commands.command(pass_context=True)
-    @r.has_role_id(370630936561451008)
+    @commands.has_role('ADMIN')
     async def warning_reset(self, ctx):
         """WARNING, deletes everything"""
         db.initialize()

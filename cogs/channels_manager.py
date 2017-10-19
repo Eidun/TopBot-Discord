@@ -2,8 +2,6 @@ import discord
 import data
 from discord.ext import commands
 from models.active_channels import ChannelsModel
-import utils.roles_assigment as r
-
 
 class Channels:
 
@@ -11,7 +9,7 @@ class Channels:
         self.bot = bot
 
     @commands.command(pass_context=True)
-    @r.has_role_id(370630936561451008)
+    @commands.has_role('ADMIN')
     async def add_channel(self, ctx, channel: discord.Channel):
         """<channel name>"""
         if channel.id not in data.text_channels:
@@ -20,7 +18,7 @@ class Channels:
             await self.bot.send_message(ctx.message.channel, channel.name + ' added to text channels.')
 
     @commands.command(pass_context=True)
-    @r.has_role_id(370630936561451008)
+    @commands.has_role('ADMIN')
     async def remove_channel(self, ctx, channel: discord.Channel):
         """<channel name>"""
         if channel.id in data.text_channels:
@@ -28,7 +26,7 @@ class Channels:
             await self.bot.send_message(ctx.message.channel, channel.name + ' removed from text channels.')
 
     @commands.command(pass_context=True)
-    @r.has_role_id(370630936561451008)
+    @commands.has_role('ADMIN')
     async def get_channels(self, ctx):
         """Writes the list of the text channels"""
         output = 'There is a total of {} channels:'.format(len(data.text_channels))
@@ -37,7 +35,7 @@ class Channels:
         await self.bot.send_message(ctx.message.channel, output)
 
     @commands.command(pass_context=True)
-    @r.has_role_id(370630936561451008)
+    @commands.has_role('ADMIN')
     async def get_bot_channels(self, ctx):
         """Writes the list of the bot channels"""
         output = 'Number of {} channels:'.format(len(data.bot_channels))
@@ -46,7 +44,7 @@ class Channels:
         await self.bot.send_message(ctx.message.channel, output)
 
     @commands.command(pass_context=True)
-    @r.has_role_id(370630936561451008)
+    @commands.has_role('ADMIN')
     async def add_bot_channel(self, ctx, channel: discord.Channel):
         """<channel name>"""
         if channel.id not in data.bot_channels:

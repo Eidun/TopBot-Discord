@@ -3,7 +3,7 @@ from discord.ext import commands
 from models.active_user import UserModel
 import db.db_adapter as db
 import data
-import utils.roles_assigment as r
+
 
 class Loader:
 
@@ -11,7 +11,7 @@ class Loader:
         self.bot = bot
 
     @commands.command(pass_context=True)
-    @r.has_role_id(370630936561451008)
+    @commands.has_role('ADMIN')
     async def load(self, ctx):
         """Gets all messages data"""
         # Initializing values
@@ -56,7 +56,7 @@ class Loader:
         await self.bot.send_message(ctx.message.channel, 'There are {} messages'.format(counter))
 
     @commands.command()
-    @r.has_role_id(370630936561451008)
+    @commands.has_role('ADMIN')
     async def save(self):
         """Saves current data in DB"""
         db.user_saving()
