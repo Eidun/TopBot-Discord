@@ -10,6 +10,9 @@ config_local = {
     'port': 5432
 }
 
+# Set which config
+config = config_local
+
 if 'DATABASE_URL' in os.environ:
     # Deploy the bot in heroku
     heroku = urlparse.urlparse(os.environ['DATABASE_URL'])
@@ -20,6 +23,8 @@ if 'DATABASE_URL' in os.environ:
         'host': heroku.hostname,
         'port': heroku.port
         }
+    # Set which config
+    config = config_heroku
 
 # Your config:
 config_new = {
@@ -29,5 +34,4 @@ config_new = {
     'host': '',
     'port': ''
 }
-# Set which config
-config = config_local
+

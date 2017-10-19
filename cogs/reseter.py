@@ -10,6 +10,7 @@ class Reset:
     @commands.command(pass_context=True)
     @commands.has_role('Admin')
     async def warning_reset(self, ctx):
+        """WARNING, deletes everything"""
         db.initialize()
         data.users = {}
         data.bot_channels = {}

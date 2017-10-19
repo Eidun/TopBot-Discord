@@ -13,6 +13,7 @@ class Loader:
     @commands.command(pass_context=True)
     @commands.has_role('Admin')
     async def load(self, ctx):
+        """Gets all messages data"""
         # Initializing values
         counter = 0
         checkpoint = 0
@@ -57,6 +58,7 @@ class Loader:
     @commands.command()
     @commands.has_role('Admin')
     async def save(self):
+        """Saves current data in DB"""
         db.user_saving()
         db.channel_saving()
 

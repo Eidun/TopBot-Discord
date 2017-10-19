@@ -14,6 +14,7 @@ class Info:
 
     @commands.command(pass_context=True)
     async def info(self, ctx, user: discord.Member=None):
+        """<User> User self if empty. Shows user info"""
         if user is None:
             user = ctx.message.author
         print(user.id)
@@ -37,6 +38,7 @@ class Info:
 
     @commands.command(pass_context=True)
     async def top20(self, ctx):
+        """Top 20 best users"""
         top = get_top20()
         output = 'Top 20:\n'
         count = 1
@@ -47,6 +49,7 @@ class Info:
 
     @commands.command(pass_context=True)
     async def inactive(self, ctx):
+        """Users that didn't write a message in 6 months"""
         users = data.users.values()
         today = datetime.date.today()
 

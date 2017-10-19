@@ -104,6 +104,7 @@ def prepare_bot():
     print('Users and channels ready')
 
 # Saving data each 10 minutes
-
+bot.loop.create_task(saving_routine())
+bot.loop.create_task(check_activity_today())
 # Test bot
-bot.run('MTg3MTU3Nzk1MjA2ODU2NzA0.DMpS3A.OcmUlle6LnAcF-i10SbZnRNdfz8')
+bot.run('Mjg1MzYyMTExMzgxNTA0MDAx.DMpflg.qvd8X3Df0yjts6adJGb_TgkXoNM')
