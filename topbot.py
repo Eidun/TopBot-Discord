@@ -70,7 +70,7 @@ async def check_activity_today():
         for user in data.users.values():
             print(user.revised)
             print(user.activity)
-            if user.revised is None or user.revised != today:
+            if user.revised is None or (user.revised % 10) < today - 2:
                 user.revised = today
                 if today == user.last_message_date.day:
                     user.add_activity()
