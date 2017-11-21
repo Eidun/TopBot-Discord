@@ -107,4 +107,4 @@ def prepare_bot():
 bot.loop.create_task(saving_routine())
 bot.loop.create_task(check_activity_today())
 # Test bot
-bot.run('Mjg1MzYyMTExMzgxNTA0MDAx.DMpflg.qvd8X3Df0yjts6adJGb_TgkXoNM')
+bot.run('')
